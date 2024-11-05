@@ -1,3 +1,5 @@
+import functions
+
 adata = sc.read_h5ad("sample_aorta_data_updated.h5ad")
 
 GPT_DIM=3072
