@@ -1,27 +1,26 @@
 # scHOTT
 
-**scHOTT (single-cell Hierarchical Optimal Transport Tool)** is a Python package for computing **cell-to-cell distances** by integrating **gene expression data** and **gene embeddings**.  
-It applies **topic modeling**, **optimal transport**, and **embedding-based distance metrics** to single-cell RNA-seq data, and provides downstream **evaluation, visualization, and clustering** tools.
+This repository contains the code accompanying the paper:
+
+> Fangfang Guo, Dailin Gan, Jun Li.  
+> *Cell-to-cell distance that combines gene expression and gene embeddings.*  
+> *Computational and Structural Biotechnology Journal*, 2024.  
+> https://doi.org/10.1016/j.csbj.2024.10.044  
 
 
-## Features
+## Overview
+This code implements **scHOTT (single-cell Hierarchical Optimal Topic Transport)**,  
+a method for measuring **cell-to-cell distances** by integrating gene expression matrices with gene embeddings.  
 
-The core functionality is implemented in `functions.py`:
+The pipeline supports:
+- **Topic modeling** with LDA on expression data  
+- **Hierarchical Optimal Topic Transport (HOTT)** for distance computation  
+- **kNN evaluation** (Accuracy, Precision, Recall, F1)  
+- **UMAP visualization** for embedding plots  
+- **K-Medoids clustering** with Silhouette and ARI metrics  
 
-- **Topic Modeling**
-  - `fit_topics`: LDA topic modeling on expression data, outputting topic distributions and centers.  
+---
 
-- **Distances & Optimal Transport**
-  - `sparse_ot`, `wmd`, `rwmd`, `wcd`  
-  - `hott`, `hoftt`: Hierarchical Optimal Topic Transport distances  
-  - `calc_costs`: Build embedding-based cost matrices  
-  - `calculate_hott_dist`, `calculate_hoftt_dist`: Pairwise distance computation  
-
-- **Evaluation**
-  - `knn_evaluation`, `knn_evaluation_split`: Run classification with kNN and compute accuracy, precision, recall, and F1-score.  
-
-- **Visualization**
-  - `generate_umap_visualizations`: UMAP projection from distance matrices or raw embeddings, colored by cell type.  
-
-- **Clustering**
-  - `cluster_analysis`: K-Medoids clustering + evaluation with Silhouette Score and ARI.  
+## Repository Contents
+- `functions.py` – Core functions (topic modeling, optimal transport distance metrics, kNN evaluation, clustering, visualization).  
+- `main.py` – Example pipeline to reproduce the analyses from the paper.  
